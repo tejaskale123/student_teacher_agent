@@ -494,5 +494,165 @@
     {
         "role": "teacher",
         "message": "We've already discussed Virat Kohli earlier in our conversation. As I mentioned before, he is an Indian cricketer who is widely regarded as one of the greatest batsmen in the history of cricket. He is a skilled right-handed batsman and a part-time off-spinner who has captained the Indian national team in various formats, including Test, One-Day Internationals (ODIs), and Twenty20 Internationals (T20Is)."
+    },
+    {
+        "role": "student",
+        "message": " hi"
+    },
+    {
+        "role": "teacher",
+        "message": "Hello! It seems like we're back to our conversation about various topics, including AI news and Python functions. I'm here to help with any questions or discussions you'd like to have. How's your day going so far?"
+    },
+    {
+        "role": "student",
+        "message": "ml full from "
+    },
+    {
+        "role": "teacher",
+        "message": "It seems like you're trying to ask a question about machine learning (ML), but it's a bit hard to decipher. Could you please rephrase or provide more context about what you mean by \"ml full from\"? I'm here to help and want to make sure I understand what you're asking."
+    },
+    {
+        "role": "student",
+        "message": "What are Python functions?"
+    },
+    {
+        "role": "teacher",
+        "message": "A series of statements which returns some value to a caller. It can also be passed zero or more arguments which may be used in the execution of the body."
+    },
+    {
+        "role": "student",
+        "message": "Summarize the PDF in simple bullet points."
+    },
+    {
+        "role": "teacher",
+        "message": "I could not find that information in the PDF."
+    },
+    {
+        "role": "student",
+        "message": "What are Python functions? Explain with a simple example."
+    },
+    {
+        "role": "teacher",
+        "message": "A function is a series of statements which returns some value to a caller. It can also be passed zero or more arguments which may be used in the execution of the body. \n\nFor example:\n>>> def function(a):\n... pass\n...\n>>> function(0, a=0)\nTraceback (most recent call last):\nFile \"<stdin>\", line 1 in <module>\nTypeError: function() got multiple values for keyword argument 'a'"
+    },
+    {
+        "role": "student",
+        "message": "Summarize the PDF in simple bullet points."
+    },
+    {
+        "role": "student",
+        "message": "Calculate 25 * 4 + 18 / 3."
+    },
+    {
+        "role": "teacher",
+        "message": "Answer = Invalid Calculation"
+    },
+    {
+        "role": "teacher",
+        "message": "Here's a summary of the PDF in simple bullet points:\n\n\u2022 Documentation strings should start with a capital letter and end with a period.\n\u2022 The second line of a documentation string should be blank to visually separate the summary from the rest of the description.\n\u2022 The Python parser does not strip indentation from multi-line string literals, so tools that process documentation have to strip indentation.\n\u2022 The repr() and str() functions can be used to convert any value to a string for debugging purposes.\n\u2022 The pprint module offers more sophisticated control over printing built-in and user-defined objects.\n\u2022 The textwrap module formats paragraphs of text to fit a given screen width.\n\u2022 The doctest module provides a tool for scanning a module and validating tests embedded in a program's docstrings.\n\u2022 The unittest module allows a more comprehensive set of tests to be maintained in a separate file.\n\u2022 Python's virtual machine executes the bytecode emitted by the bytecode compiler.\n\u2022 The Zen of Python lists Python design principles and philosophies.\n\u2022 The Python documentation is generated from reStructuredText sources by Sphinx."
+    },
+    {
+        "role": "student",
+        "message": "hi"
+    },
+    {
+        "role": "teacher",
+        "message": "It looks like we're back to a new conversation.  I was in the middle of a discussion about functions and a PDF summary with a teacher and a student.  However, I don't see any relevant information to our previous conversation in your message.  If you'd like to continue the discussion about functions or the PDF summary, I'd be happy to help.  Otherwise, I can start a new conversation with you. \n\nWhat would you like to talk about?"
+    },
+    {
+        "role": "student",
+        "message": "what is strctuer of python "
+    },
+    {
+        "role": "teacher",
+        "message": "In the context of our previous conversation, I believe you're asking about the structure of Python in terms of its organization and design principles. \n\nThe structure of Python is quite unique and follows a set of principles known as the \"Zen of Python\" which can be accessed by typing `import this` in a Python interpreter. These principles include:\n\n1.  \"Beautiful is better than ugly.\"\n2.  \"Explicit is better than implicit.\"\n3.  \"Simple is better than complex.\"\n4.  \"Complex is better than complicated.\"\n5.  \"Readability counts.\"\n6.  \"Special cases aren't special enough to break the rules.\"\n7.  \"There should be one\u2014and preferably only one\u2014obvious way to do it.\"\n8.  \"Although practicality beats purity.\"\n9.  \"Errors should never pass silently.\"\n10. \"Unless explicitly silenced.\"\n11. \"In the face of ambiguity, refuse the temptation to guess.\"\n12. \"There should be one\u2014and preferably only one\u2014obvious way to do it.\"\n13. \"Although that way may not be obvious at first without a sense of effort.\"\n14. \"Now is better than never.\"\n15. \"Although never is often better than *right* now.\"\n16. \"If the implementation is easy to explain, it may be a good idea.\"\n17. \"If the implementation is hard to explain, it may be a bad idea.\"\n18. \"Namespaces are one honking great idea"
+    },
+    {
+        "role": "student",
+        "message": "Summarize the PDF in simple bullet points."
+    },
+    {
+        "role": "teacher",
+        "message": "I could not find a summary of the PDF in simple bullet points."
+    },
+    {
+        "role": "student",
+        "message": "What are Python functions? Explain with a simple example."
+    },
+    {
+        "role": "teacher",
+        "message": "A function is a series of statements which returns some value to a caller. It can also be passed zero or more arguments which may be used in the execution of the body.\n\nExample:\n```\n>>> def function(a):\n... pass\n...\n>>> function(0, a=0)\nTraceback (most recent call last):\nFile \"<stdin>\", line 1 in <module>\nTypeError: function() got multiple values for keyword argument 'a'\n```\nIn this example, `function(a)` is defined with a single argument `a`, but when called with multiple values (`function(0, a=0)`), it raises a `TypeError` because it can't handle multiple values for the keyword argument `a`."
+    },
+    {
+        "role": "student",
+        "message": "Python Functions"
+    },
+    {
+        "role": "teacher",
+        "message": "A series of statements which returns some value to a caller. It can also be passed zero or more arguments which may be used in the execution of the body."
+    },
+    {
+        "role": "student",
+        "message": "What are Python functions?"
+    },
+    {
+        "role": "teacher",
+        "message": "A function is a series of statements which returns some value to a caller. It can also be passed zero or more arguments which may be used in the execution of the body."
+    },
+    {
+        "role": "student",
+        "message": "Explain while loop"
+    },
+    {
+        "role": "teacher",
+        "message": "The while loop executes as long as the condition (here: a < 10) remains true. In Python, any non-zero integer value is true; zero is false. The condition may also be a string or list value, in fact any sequence; anything with a non-zero length is true, empty sequences are false."
+    },
+    {
+        "role": "student",
+        "message": "Who is Virat Kohli?"
+    },
+    {
+        "role": "teacher",
+        "message": "Virat Kohli is an Indian cricketer who is the current captain of the Indian national team in all formats. He is widely regarded as one of the greatest batsmen in the history of the game. However, I'm not sure how this relates to the current conversation about Python functions and while loops. If you'd like to get back to the topic, I'd be happy to help with any questions you may have about programming."
+    },
+    {
+        "role": "student",
+        "message": "search latest ai news"
+    },
+    {
+        "role": "teacher",
+        "message": "1. AI News | Latest News | Insights Powering AI-Driven Business Growth\nhttps://www.artificialintelligence-news.com/\n\n2. Artificial Intelligence - AI News - Reuters\nhttps://www.reuters.com/technology/artificial-intelligence/\n\n3. AI News & Artificial Intelligence - TechCrunch\nhttps://techcrunch.com/category/artificial-intelligence/\n\n4. Artificial Intelligence - Latest AI News and Analysis - WSJ.com\nhttps://www.wsj.com/tech/ai?eafs_enabled=false\n\n5. What is the single best source to keep up with AI news? - Reddit\nhttps://www.reddit.com/r/ArtificialInteligence/comments/1chy900/what_is_the_single_best_source_to_keep_up_with_ai/\n\n"
+    },
+    {
+        "role": "student",
+        "message": "22+22"
+    },
+    {
+        "role": "teacher",
+        "message": "Answer = 44"
+    },
+    {
+        "role": "student",
+        "message": "mala best gy  workyot  sayhi est you tube lin de"
+    },
+    {
+        "role": "teacher",
+        "message": "I think I see what's going on here. It seems like you're trying to ask a question, but the words are a bit jumbled up. Let me try to decipher what you're trying to ask.\n\nIs your question something like \"What's the best way to work with YouTube links?\" or \"How do I use YouTube links effectively?\" If that's the case, I'd be happy to help you with that.\n\nIn the context of our previous conversation about programming and AI news, I'm not sure how YouTube links directly relate, but I can try to provide some general information on how to work with links or share content on YouTube if that's what you're looking for.\n\nPlease let me know if I'm on the right track or if I'm completely off base!"
+    },
+    {
+        "role": "student",
+        "message": "at gym workout youtube links"
+    },
+    {
+        "role": "teacher",
+        "message": "It sounds like you're looking for some workout inspiration or guidance from YouTube. There are many great channels and videos on YouTube that can help you with your gym routine, whether you're a beginner or an experienced athlete.\n\nSome popular YouTube channels for workouts and fitness include:\n\n- Fitness Blender: Offers a wide variety of free workout videos, from yoga and Pilates to strength training and cardio.\n- POPSUGAR Fitness: Provides a range of workouts, including dance, strength training, and HIIT (High-Intensity Interval Training).\n- Yoga With Adriene: Features gentle and challenging yoga routines, as well as meditation and breathwork exercises.\n- Nike Training Club: Offers a variety of workouts, including strength training, cardio, and yoga, led by certified trainers.\n\nYou can search for these channels or browse through the many other fitness channels on YouTube to find the workouts that suit your needs and goals.\n\nIf you're looking for a specific type of workout, such as a full-body routine or a HIIT session, you can use keywords like \"gym workout\" or \"home workout\" along with the type of exercise you're interested in. For example, \"gym workout for beginners\" or \"HIIT workout at home.\"\n\nI hope this helps you find the workout motivation and guidance you need!"
+    },
+    {
+        "role": "student",
+        "message": "search latest prime minister of india "
+    },
+    {
+        "role": "teacher",
+        "message": "1. List of prime ministers of India - Wikipedia\nhttps://en.wikipedia.org/wiki/List_of_prime_ministers_of_India\n\n2. Prime Minister of India - Wikipedia\nhttps://en.wikipedia.org/wiki/Prime_Minister_of_India\n\n3. News Updates | Prime Minister of India\nhttps://www.pmindia.gov.in/en/news-updates/\n\n4. Know the PM | Prime Minister of India\nhttps://www.pmindia.gov.in/en/pms-profile/\n\n5. Prime Minister of India\nhttps://www.pmindia.gov.in/en/\n\n"
     }
 ]
