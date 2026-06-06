@@ -1,0 +1,1 @@
+self.search_tool = SearchTool()
