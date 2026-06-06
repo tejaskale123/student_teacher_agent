@@ -11,7 +11,7 @@ import pickle
 
 class RAGChat:
 
-   def __init__(self):
+    def __init__(self):
 
     store = VectorStore()
 
@@ -85,18 +85,19 @@ class RAGChat:
 
     self.llm = NvidiaClient(
         NVIDIA_API_KEY
-    )
+    )IDIA_API_KEY
+        )
 
-   def ask(self, question):
+    def ask(self, question):
 
-    docs = self.retriever.retrieve(
-        question,
-        k=5
-    )
+        docs = self.retriever.retrieve(
+            question,
+            k=5
+        )
 
-    context = "\n\n".join(docs)
+        context = "\n\n".join(docs)
 
-    prompt = f"""
+        prompt = f"""
 You are a PDF assistant.
 
 IMPORTANT RULES:
@@ -104,9 +105,10 @@ IMPORTANT RULES:
 1. Answer ONLY from the provided context.
 2. Never use outside knowledge.
 3. If the answer is not found in the context, reply exactly:
-I could not find that information in the PDF.
+   I could not find that information in the PDF.
 4. Do not guess.
 5. Keep answers short and clear.
+6. If possible, explain in simple language.
 
 Context:
 {context}
@@ -117,6 +119,6 @@ Question:
 Answer:
 """
 
-    answer = self.llm.ask(prompt)
+        answer = self.llm.ask(prompt)
 
-    return answer
+        return answer

@@ -14,7 +14,6 @@ class TeacherAgent:
         self.search_tool = SearchTool()
         self.router = Router()
         self.llm = NvidiaClient(NVIDIA_API_KEY)
-        self.rag = RAGChat()
 
     def answer(self, question):
         self.memory.save("student", question)
@@ -29,11 +28,6 @@ class TeacherAgent:
 
         elif route == "search":
             result = self.search_tool.search(question)
-            self.memory.save("teacher", result)
-            return result
-
-        elif route == "rag":
-            result = self.rag.ask(question)
             self.memory.save("teacher", result)
             return result
 
