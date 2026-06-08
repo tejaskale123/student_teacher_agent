@@ -4,3 +4,4 @@ import os
 load_dotenv()
 
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")

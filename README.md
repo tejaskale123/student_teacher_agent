@@ -1,168 +1,515 @@
 # Student Teacher Agent
 
-A Python-based student-teacher assistant that can answer questions using an NVIDIA-hosted LLM, route simple calculations to a calculator tool, run web searches, remember chat history, and answer questions from a PDF using a small RAG pipeline.
+Student Teacher Agent is a Python-based AI learning assistant with a Streamlit UI, CLI mode, PDF/RAG support, web search, intent detection, answer formatting, confidence scoring, and multi-agent orchestration.
+
+The project is designed like a teacher pipeline: the user asks a question, the system detects intent, routes the question to the right tool or agent, retrieves/searches when needed, reviews the result, formats it, and returns a polished answer.
 
 ## Features
 
-- Student/teacher agent flow for interactive Q&A
-- NVIDIA LLM integration through the OpenAI-compatible client
-- Conversation memory saved in `data/chat_history.json`
-- Calculator routing for basic math expressions
-- Web search routing with `ddgs`
-- PDF RAG chat using:
-  - `pypdf` for PDF text extraction
-  - `langchain-text-splitters` for chunking
-  - `sentence-transformers` for embeddings
-  - `faiss-cpu` for vector search
+- Streamlit chat interface in `app.py`
+- CLI chat mode in `main.py`
+- NVIDIA-compatible LLM client integration
+- PDF question answering using RAG and FAISS
+- Web search using DuckDuckGo/DDGS
+- Tavily-powered advanced web search
+- Query rewriting for better search quality
+- Intent detection for exam, interview, comparison, research, short-answer, and general questions
+- Search result summarization
+- Multi-agent comparison flow using Search + RAG in parallel
+- Multi-PDF RAG support from `uploads/pdfs`
+- CrossEncoder reranking for better RAG chunk selection
+- Formatter and answer generator for professional markdown output
+- Confidence scoring
+- Execution time monitoring
+- Persistent chat memory and run logs
+
+## Current Agent System
+
+```text
+agents/
+|-- student_agent.py              # Student wrapper that asks the teacher
+|-- teacher_agent.py              # Main entrypoint for answering questions
+|-- supervisor_agent.py           # Orchestrates tool/agent execution
+|-- router.py                     # Routes questions to search, rag, math, multi, or knowledge
+|-- intent_agent.py               # Detects user intent
+|-- planner_agent.py              # Plans multi-agent search/RAG queries
+|-- query_rewriter_agent.py       # Rewrites ambiguous search queries
+|-- search_agent.py               # Runs web search
+|-- search_summarizer_agent.py    # Converts raw search results into structured news summaries
+|-- rag_agent.py                  # Runs PDF/RAG answering
+|-- combiner_agent.py             # Combines search and RAG results
+|-- reflection_agent.py           # Creates comparison reports from evidence
+|-- critic_agent.py               # Checks clarity without adding outside facts
+|-- formatter_agent.py            # Formats answers professionally
+|-- answer_generator_agent.py     # Final polished answer layer
+|-- confidence_agent.py           # Scores answer confidence
+|-- execution_monitor_agent.py    # Tracks execution time
+|-- math_agent.py                 # Calculator flow
+|-- memory_agent.py               # Memory helper agent
+|-- research_agent.py             # Research helper
+`-- registry.py                   # Agent registry/helper
+```
 
 ## Project Structure
 
 ```text
 student_teacher_agent/
-+-- agents/
-|   +-- student_agent.py      # Student interface
-|   +-- teacher_agent.py      # Main teacher logic
-|   +-- router.py             # Routes calculator/search/LLM questions
-+-- data/
-|   +-- chat_history.json     # Saved conversation history
-+-- llm/
-|   +-- nvidia_client.py      # NVIDIA API client
-+-- memory/
-|   +-- memory.py             # JSON-based chat memory
-+-- rag/
-|   +-- pdf_reader.py         # Reads PDF text
-|   +-- chunker.py            # Splits text into chunks
-|   +-- embedding_model.py    # Creates embeddings
-|   +-- vector_store.py       # FAISS vector index
-|   +-- retriever.py          # Retrieves relevant chunks
-|   +-- rag_chat.py           # PDF question-answering bot
-+-- tools/
-|   +-- calculator_tool.py    # Calculator tool
-|   +-- search_tool.py        # Web search tool
-+-- config.py                 # Loads environment variables
-+-- main.py                   # Main student-teacher chat app
-+-- requirements.txt          # Python dependencies
-+-- sample.pdf                # PDF used by the RAG bot
+|-- agents/                  # AI agents and orchestration logic
+|-- data/                    # Stored chat data
+|-- evaluation/              # Evaluation helpers
+|-- llm/
+|   `-- nvidia_client.py     # NVIDIA/OpenAI-compatible LLM client
+|-- logs/
+|   `-- agent_runs.jsonl     # Agent execution logs
+|-- memory/
+|   `-- memory.py            # JSON chat memory
+|-- rag/
+|   |-- chunker.py           # Text chunking
+|   |-- embedding_model.py   # Embedding model loader
+|   |-- pdf_reader.py        # PDF text extraction
+|   |-- rag_chat.py          # RAG question answering
+|   |-- retriever.py         # Chunk retrieval
+|   `-- vector_store.py      # FAISS vector storage
+|-- tools/
+|   |-- calculator_tool.py   # Math tool
+|   `-- search_tool.py       # Web search tool
+|-- app.py                   # Streamlit app
+|-- main.py                  # CLI app
+|-- config.py                # Environment config
+|-- requirements.txt         # Dependencies
+|-- chunks.pkl               # Saved RAG chunks
+|-- faiss_index.bin          # Saved FAISS index
+`-- README.md
 ```
+
+## Requirements
+
+- Python 3.10+
+- NVIDIA API key
+- Dependencies from `requirements.txt`
+
+Main packages:
+
+- `streamlit`
+- `openai`
+- `python-dotenv`
+- `pypdf`
+- `sentence-transformers`
+- `faiss-cpu`
+- `langchain-text-splitters`
+- `ddgs`
 
 ## Setup
 
-1. Create and activate a virtual environment:
+Create and activate a virtual environment:
 
-```bash
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.\.venv\Scripts\activate
 ```
 
-2. Install dependencies:
+Install dependencies:
 
-```bash
+```powershell
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the project root:
+Create a `.env` file in the project root:
 
-```env
+```text
 NVIDIA_API_KEY=your_nvidia_api_key_here
+TAVILY_API_KEY=your_tavily_api_key_here
 ```
 
-## Run The Student Teacher Agent
+## Run
 
-```bash
+Streamlit UI:
+
+```powershell
+streamlit run app.py
+```
+
+CLI mode:
+
+```powershell
 python main.py
 ```
 
-Example usage:
+Exit CLI mode:
 
 ```text
-=== Student Teacher Agent ===
-
-You: What is artificial intelligence?
-Teacher: ...
-
-You: 12 * 8
-Teacher: Answer = 96
-
-You: search latest Python news
-Teacher: ...
+exit
 ```
 
-Type `exit` to stop the chat.
+## How The Pipeline Works
 
-## Run The PDF RAG Chat
+### 1. Intent Detection
 
-The RAG bot reads `sample.pdf`, creates chunks, builds embeddings, stores them in FAISS, and answers only from the retrieved PDF context.
-
-```bash
-python rag/test_rag.py
-```
-
-Example:
+`IntentAgent` detects the style of answer needed:
 
 ```text
-Ask: What is this PDF about?
-Answer:
+sql full form                         -> short_answer
+python functions exam point of view   -> exam
+python functions interview questions  -> interview
+compare ...                           -> comparison
+research ...                          -> research
+default                               -> general
+```
+
+For `short_answer`, `TeacherAgent` directly returns a short answer format:
+
+```markdown
+# Topic
+
+Full Form:
+...
+
+Meaning:
+...
+
+Use:
 ...
 ```
 
-Type `exit` to stop the RAG chat.
+### 2. Routing
 
-## How It Works
+`Router` chooses the route:
 
-### Agent Chat
-
-1. `main.py` accepts user input.
-2. `StudentAgent` sends the question to `TeacherAgent`.
-3. `Router` decides the route:
-   - Math operators like `+`, `-`, `*`, `/` use the calculator.
-   - Questions containing `search` use web search.
-   - Everything else goes to the NVIDIA LLM.
-4. `Memory` saves student and teacher messages in `data/chat_history.json`.
-
-### PDF RAG
-
-1. `read_pdf()` extracts text from `sample.pdf`.
-2. `create_chunks()` splits the text into overlapping chunks.
-3. `create_embeddings()` converts chunks into vectors.
-4. `VectorStore` stores vectors in a FAISS index.
-5. `Retriever` finds the most relevant chunks for a question.
-6. `RAGChat` sends the retrieved context to the NVIDIA LLM and asks it to answer only from the PDF.
-
-## Useful Test Files
-
-You can run individual test scripts while developing:
-
-```bash
-python rag/test_pdf.py
-python rag/test_chunks.py
-python rag/test_embeddings.py
-python rag/test_faiss.py
-python rag/test_retriever.py
-python rag/test_rag.py
+```text
+what is python                                      -> knowledge
+latest ai news                                     -> search
+latest python news                                 -> search
+summarize chapter 1                                -> rag
+compare python functions from pdf with latest news -> multi
+10 + 20                                            -> calculator
 ```
 
-API checks:
+### 3. Search Flow
 
-```bash
-python test_nvidia.py
-python test_nvidia_key.py
+For search questions:
+
+```text
+QueryRewriterAgent
+-> 
+SearchAgent
+->
+SearchSummarizerAgent
+->
+FormatterAgent
+->
+AnswerGeneratorAgent
+->
+ConfidenceAgent
+->
+ExecutionMonitor
 ```
 
-## Notes
+Example query rewrite:
 
-- `sample.pdf` is currently hardcoded in `rag/rag_chat.py`.
-- The first RAG run can take time because the embedding model is downloaded/loaded.
-- Web search requires internet access.
-- LLM answers require a valid `NVIDIA_API_KEY`.
-- Chat memory is stored locally in `data/chat_history.json`.
+```text
+latest python news -> latest python news programming language
+latest ai news     -> latest ai news artificial intelligence
+```
+
+Expected search output:
+
+```markdown
+# Python News
+
+## Top Updates
+
+- Python ecosystem updates
+- Community news
+- Learning resources
+
+## Key Insights
+
+- Python remains actively developed
+- New educational content is available
+
+## Sources
+
+- URL...
+```
+
+### 4. RAG Flow
+
+For PDF/document questions:
+
+```text
+RAGAgent
+->
+RAGChat
+->
+Retriever
+->
+FAISS index
+ ->
+CrossEncoder reranker
+->
+FormatterAgent
+->
+AnswerGeneratorAgent
+```
+
+RAG uses saved chunks and FAISS index files:
+
+```text
+chunks.pkl
+faiss_index.bin
+uploads/pdfs/
+```
+
+When multiple PDFs exist in `uploads/pdfs`, their text is combined before chunking and indexing.
+
+### 5. Multi-Agent Comparison Flow
+
+For comparison questions involving PDF and latest/search content:
+
+```text
+PlannerAgent
+->
+SearchAgent + RAGAgent run in parallel
+->
+SearchSummarizerAgent
+->
+CombinerAgent
+->
+ReflectionAgent
+->
+CriticAgent
+->
+FormatterAgent
+->
+AnswerGeneratorAgent
+->
+ConfidenceAgent
+->
+ExecutionMonitor
+```
+
+Expected comparison format:
+
+```markdown
+# Comparison Report
+
+## PDF Findings
+
+## Search Findings
+
+## Similarities
+
+## Differences
+
+## Final Conclusion
+```
+
+The comparison pipeline is evidence-preserving. It should not change topics, invent facts, or convert a PDF-vs-news comparison into an unrelated version comparison.
+
+## Important Behavior
+
+- Formatter must not invent information.
+- Critic must not add outside facts.
+- Search summarizer must not describe websites like "Python.org provides blogs".
+- Search summarizer should summarize the search result pattern, such as ecosystem updates, community news, and learning resources.
+- URLs should be preserved.
+- Raw `SEARCH RESULT:` and `RAG RESULT:` dumps should not be shown in the final answer.
+- For comparison answers, normal `Summary / Key Points / Detailed Explanation` format should not replace the comparison report format.
+
+## Logs And Memory
+
+Chat memory:
+
+```text
+chat_history.json
+data/chat_history.json
+```
+
+Agent execution logs:
+
+```text
+logs/agent_runs.jsonl
+```
+
+Logged metadata can include:
+
+- Query
+- Route
+- Agents used
+- Execution time
+- Confidence score
+- Retrieved chunks status
+- Timestamp
+
+## Verification Commands
+
+Compile important files:
+
+```powershell
+python -m py_compile main.py app.py
+python -m py_compile agents\teacher_agent.py agents\supervisor_agent.py agents\router.py
+python -m py_compile agents\intent_agent.py agents\formatter_agent.py agents\search_summarizer_agent.py
+```
+
+Run CLI tests:
+
+```powershell
+python main.py
+```
+
+Test 1:
+
+```text
+sql full form
+```
+
+Expected:
+
+```text
+INTENT: short_answer
+```
+
+Expected answer shape:
+
+```markdown
+# SQL
+
+Full Form:
+Structured Query Language
+
+Meaning:
+...
+
+Use:
+...
+```
+
+Test 2:
+
+```text
+latest python news
+```
+
+Expected:
+
+```markdown
+# Python News
+
+## Top Updates
+
+## Key Insights
+
+## Sources
+```
+
+Test 3:
+
+```text
+compare python functions from pdf with latest python news
+```
+
+Expected:
+
+```markdown
+# Comparison Report
+
+## PDF Findings
+
+## Search Findings
+
+## Similarities
+
+## Differences
+
+## Final Conclusion
+```
+
+Test 4:
+
+```text
+python functions exam point of view
+```
+
+Expected:
+
+```text
+INTENT: exam
+```
+
+Test 5:
+
+```text
+python functions interview questions
+```
+
+Expected:
+
+```text
+INTENT: interview
+```
 
 ## Troubleshooting
 
-- If the NVIDIA request fails, check that `.env` exists and `NVIDIA_API_KEY` is valid.
-- If PDF answers are empty, confirm that `sample.pdf` contains selectable text.
-- If FAISS or sentence-transformer installation fails, upgrade pip first:
+If the app starts slowly:
 
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+- The embedding model may be loading.
+- FAISS and saved chunks may be loading.
+- Hugging Face may show an unauthenticated request warning. This is usually not fatal, but setting `HF_TOKEN` can improve rate limits.
+
+If search gives unrelated Python snake results:
+
+- Confirm `QueryRewriterAgent` is active.
+- Console should show:
+
+```text
+SEARCH QUERY: latest python news programming language
 ```
+
+If comparison output changes topic:
+
+- Check `FormatterAgent`, `CriticAgent`, `ReflectionAgent`, and `AnswerGeneratorAgent` prompts.
+- They must preserve PDF/Search topics and avoid outside facts.
+
+If NVIDIA API fails:
+
+- Check `.env`.
+- Confirm `NVIDIA_API_KEY` is set.
+- Confirm internet access is available.
+
+If Tavily search fails:
+
+- Check `.env`.
+- Confirm `TAVILY_API_KEY` is set.
+- Install `tavily-python` from `requirements.txt`.
+
+If RAG answer is weak:
+
+- Confirm `chunks.pkl` and `faiss_index.bin` exist.
+- Confirm PDFs exist in `uploads/pdfs`.
+- Rebuild the index after uploading new PDFs.
+- Make sure at least one PDF contains the topic being asked.
+- The reranker uses `BAAI/bge-reranker-base`, which may download on first run.
+
+## Status
+
+Current core components:
+
+```text
+Intent Agent          Working
+Search Summarizer     Working
+Router                Working
+Planner               Working
+Search                Working
+RAG                   Working
+Combiner              Working
+Reflection            Working
+Critic                Working
+Formatter             Evidence-preserving
+Query Rewriter        Working
+Confidence            Working
+Execution Monitor     Working
+```
+
+## License
+
+This project is for learning and experimentation. Add a license file if you plan to publish or distribute it.

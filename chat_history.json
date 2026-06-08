@@ -1,0 +1,229 @@
+{
+    "active_chat_id": "98575132-a939-4ee9-bbad-8b42467b19c5",
+    "chats": [
+        {
+            "id": "a61394cc-1e8c-4000-94ad-7abdf8a1c74e",
+            "title": "who is father of python",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "who is father of python "
+                },
+                {
+                    "role": "assistant",
+                    "content": "The \"father of Python\" is Guido van Rossum. He's a Dutch computer programmer who created the Python programming language in the late 1980s. He's the one who designed the language, implemented it, and maintained it until 2018 when he stepped down as the \"Benevolent Dictator For Life\" of Python.\n\nIt's interesting to note that we were discussing Python earlier in our conversation, but we took a break to talk about cricket, movies, and the Bollywood industry. Now, we're back to Python, and I'm happy to provide more information about Guido van Rossum and the Python programming language if you're interested!"
+                },
+                {
+                    "role": "user",
+                    "content": "python loop"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Python loops. We were just discussing Guido van Rossum, the \"father of Python,\" and I'm glad we're back to talking about Python. \n\nThere are several types of loops in Python, including:\n\n1. **For Loop**: This loop is used to iterate over a sequence (such as a list, tuple, or string) and execute a block of code for each item in the sequence. The basic syntax is `for variable in sequence: code_to_execute`.\n\n2. **While Loop**: This loop is used to execute a block of code as long as a certain condition is true. The basic syntax is `while condition: code_to_execute`.\n\n3. **Range Loop**: This is a type of for loop that is used to iterate over a range of numbers. The basic syntax is `for variable in range(start, stop, step): code_to_execute`.\n\nHere's an example of a simple for loop in Python:\n\n```python\nfruits = ['apple', 'banana', 'cherry']\nfor fruit in fruits:\n    print(fruit)\n```\n\nThis will output:\n\n```\napple\nbanana\ncherry\n```\n\nAnd here's an example of a while loop:\n\n```python\ni = 0\nwhile i < 5:\n    print(i)\n    i += 1\n```\n\nThis will output:\n\n```\n0\n1\n2\n3\n4\n```\n\nThese are just a few examples of Python loops. If you have any specific"
+                },
+                {
+                    "role": "user",
+                    "content": "mal atu forr loop full smajun snag aks aste tar full "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like you're asking about how to use a for loop in Python to iterate over a list of items. You mentioned something about \"mal atu forr loop full smajun snag aks aste tar full,\" but I'm not entirely sure what that means.\n\nTo clarify, let's say you have a list of items, like this:\n\n```python\nfruits = ['apple', 'banana', 'cherry', 'date', 'elderberry']\n```\n\nAnd you want to use a for loop to print out each item in the list. Here's how you can do it:\n\n```python\nfruits = ['apple', 'banana', 'cherry', 'date', 'elderberry']\nfor fruit in fruits:\n    print(fruit)\n```\n\nThis will output:\n\n```\napple\nbanana\ncherry\ndate\nelderberry\n```\n\nIf you want to do something more complex, like print out the index of each item in the list, you can use the `enumerate()` function like this:\n\n```python\nfruits = ['apple', 'banana', 'cherry', 'date', 'elderberry']\nfor i, fruit in enumerate(fruits):\n    print(f\"{i}: {fruit}\")\n```\n\nThis will output:\n\n```\n0: apple\n1: banana\n2: cherry\n3: date\n4: elderberry\n```\n\nLet me know if you have any other questions or if there's anything else I can help with!"
+                }
+            ],
+            "created_at": "2026-06-07T18:11:35",
+            "updated_at": "2026-06-07T18:15:23"
+        },
+        {
+            "id": "98575132-a939-4ee9-bbad-8b42467b19c5",
+            "title": "who is virat koohli",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "who is virat koohli"
+                },
+                {
+                    "role": "assistant",
+                    "content": "I think we're taking a break from discussing programming and Python, aren't we? Don't worry, I'd be happy to tell you about Virat Kohli.\n\nVirat Kohli is an Indian international cricketer who plays as a right-handed batsman and occasional right-arm medium pace bowler. He is widely regarded as one of the greatest batsmen in the world. Kohli has been the captain of the Indian national team since 2017 and has led the team to numerous victories in international competitions.\n\nAs a cricket fan, you might be interested to know that Kohli's impressive career has been marked by numerous records and accolades, including being the highest run-scorer in international cricket. He has also been awarded the Sir Garfield Sobers Trophy as the ICC Cricketer of the Year in 2017 and 2018.\n\nNow, if you'd like to know more about cricket or Virat Kohli, I'd be happy to provide more information or point you in the direction of some resources."
+                },
+                {
+                    "role": "user",
+                    "content": "virat wife name "
+                },
+                {
+                    "role": "assistant",
+                    "content": "Virat Kohli is married to Anushka Sharma, a well-known Indian actress and film producer. She's a talented artist in her own right, and the two of them have been quite the power couple in the Indian entertainment and sports world. They've been together since 2013 and got married in 2017. Anushka has been very supportive of Virat's cricket career, and it's lovely to see the two of them together."
+                },
+                {
+                    "role": "user",
+                    "content": "waht age of virat and anuksha "
+                },
+                {
+                    "role": "assistant",
+                    "content": "Virat Kohli's age is a bit of a straightforward one. He was born on November 5, 1988, which makes him 34 years old as of my knowledge cutoff in 2023. \n\nAs for Anushka Sharma, she was born on May 1, 1988, which makes her 34 years old as well."
+                },
+                {
+                    "role": "user",
+                    "content": "new movie"
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like we're taking a break from discussing Python and fitness to talk about cricket and movies.  Anushka Sharma, Virat Kohli's wife, is an Indian actress and film producer, and she has been a part of many successful movies in the past. Some of her notable films include \"Band Baaja Baaraat\", \"Jab Tak Hai Jaan\", \"PK\", and \"Sultan\". \n\nIf you're interested in knowing more about her movies or the latest releases in the Bollywood industry, I'd be happy to provide more information or point you in the direction of some resources."
+                },
+                {
+                    "role": "user",
+                    "content": "mala tu 2026 madhe konti movie ali ahe te snag baki actors chi "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like we're taking a break from discussing cricket and movies to talk about the Bollywood industry. I'm not entirely sure what you're asking, but it seems like you want to know which movies are releasing in 2026 and which actors are part of them.\n\nUnfortunately, I'm a teacher with a knowledge cutoff in 2023, so I don't have real-time information about upcoming movies or releases in 2026. However, I can suggest some ways for you to find the information you're looking for.\n\nYou can try checking out online movie databases like IMDb, Bollywood Hungama, or BookMyShow, which often provide information about upcoming movie releases and their cast. You can also follow Bollywood news websites, social media accounts, or film production companies to stay updated about the latest releases.\n\nIf you'd like, I can also provide some general information about the current state of the Bollywood industry or some popular Bollywood movies that you might enjoy watching. Just let me know!"
+                },
+                {
+                    "role": "user",
+                    "content": "200 23 chya saang mg movi mala ani name pn movie ch "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like you're asking about the 200 movies released in 2023, and you want me to list the names of those movies. However, I have to clarify that my knowledge cutoff is in 2023, but I don't have a list of 200 movies released that year.\n\nBut if you'd like, I can suggest some popular Bollywood movies released in 2023. Some notable ones include \"Pathaan\", \"Tiger 3\", \"Cirkus\", \"Selfiee\", and \"Bholaa\". These movies have been well-received by audiences and critics alike, and you might find them interesting to watch.\n\nIf you're looking for a more comprehensive list of 2023 movies, I can recommend checking out online movie databases like IMDb, Bollywood Hungama, or BookMyShow, which often provide information about movie releases and their cast. You can also follow Bollywood news websites, social media accounts, or film production companies to stay updated about the latest releases.\n\nLet me know if you'd like more information or help with anything else!"
+                },
+                {
+                    "role": "user",
+                    "content": "at list 10 best love story move snag mala "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like you're looking for some great love story movies to watch. I'd be happy to recommend some popular ones. Since we were just discussing Anushka Sharma's movies, I can suggest some Bollywood films that she's been a part of, which are also beautiful love stories.\n\nOne of the notable ones is \"Jab Tak Hai Jaan\" (2012), where Anushka plays the role of Meera, a strong-willed and independent woman. The movie is a romantic drama that explores the complexities of love and relationships.\n\nAnother great one is \"PK\" (2014), where Anushka plays the role of Jaya, a blind woman who falls in love with a kind-hearted man. The movie is a thought-provoking drama that explores themes of love, faith, and social issues.\n\nIf you're looking for more Bollywood love story movies, I can suggest some other notable ones like \"Band Baaja Baaraat\" (2010), \"Sultan\" (2016), and \"Dil Dhadakne Do\" (2015). These movies are all great examples of Bollywood's take on love and relationships.\n\nIf you're interested in watching more romantic movies, I can also recommend some classic Hollywood love stories or other international films. Just let me know!\n\nHere are at least 10 Bollywood love story movies that you might enjoy:\n\n1. Jab Tak Hai Jaan (2012)\n2. PK (2014)\n3. Band Ba"
+                },
+                {
+                    "role": "user",
+                    "content": "who is a prime minister of india"
+                },
+                {
+                    "role": "assistant",
+                    "content": "As of my knowledge cutoff in 2023, the Prime Minister of India is Narendra Modi. However, I'd like to clarify that my knowledge is based on information available up to 2023, and I may not have the most recent updates on current events.\n\nIf you're interested in learning more about India's current government or the Prime Minister's recent initiatives, I can suggest some reliable sources like the official website of the Prime Minister of India, news websites, or social media accounts of government officials. Would you like me to provide more information or resources on this topic?"
+                },
+                {
+                    "role": "user",
+                    "content": "salaman khan totol movies all "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like you're interested in the movies of Salman Khan. Well, I can certainly provide you with some information on his notable films. As we were discussing Bollywood movies earlier, I can suggest some of his popular ones.\n\nSalman Khan has been a part of many successful Bollywood films, including romantic dramas, action movies, and comedies. Some of his notable movies include:\n\n1. **Hum Dil De Chuke Sanam** (1999) - a romantic drama that explores the complexities of love and relationships.\n2. **Tere Naam** (2003) - a romantic drama that features Salman Khan in a lead role alongside Sonali Bendre.\n3. **Sultan** (2016) - an action-drama that showcases Salman Khan's wrestling skills and features Anushka Sharma in a lead role.\n4. **Dabangg** (2010) - an action-comedy that features Salman Khan as the titular character, a tough police officer.\n5. **Bajrangi Bhaijaan** (2015) - a heartwarming drama that features Salman Khan in a lead role alongside Kareena Kapoor Khan.\n\nThese are just a few examples of Salman Khan's notable films. If you're interested in watching more of his movies or learning about his filmography, I'd be happy to provide you with more information!"
+                },
+                {
+                    "role": "user",
+                    "content": "20 movies in salamn kahn "
+                },
+                {
+                    "role": "assistant",
+                    "content": "You're interested in learning more about Salman Khan's filmography, aren't you? Well, I can certainly provide you with a list of 20 notable movies featuring the actor.\n\nHere are 20 movies of Salman Khan:\n\n1. **Biwi Ho To Aisi** (1988)\n2. **Main Azaad Hoon** (1989)\n3. **Baaghi** (1990)\n4. **Sanam Bewafa** (1991)\n5. **Patthar Ke Phool** (1991)\n6. **Pyaar Ka Devta** (1991)\n7. **Suryavanshi** (1992)\n8. **Kshatriya** (1993)\n9. **Mausam** (1995)\n10. **Jeet** (1996)\n11. **Dil Tera Deewana** (1996)\n12. **Khamoshi: The Musical** (1996)\n13. **Judwaa** (1997)\n14. **Dil** (1997)\n15. **Pyar Kiya To Darna Kya** (1998)\n16. **Hum Aapke Hain Koun..!** (1994)\n17. **Hum Dil De Chuke Sanam** (1999)\n18. **Kuch Kuch Hota Hai** (1998)\n19. **Tere Naam** (2003)\n20. **"
+                },
+                {
+                    "role": "user",
+                    "content": "best  movi sang mala aal maovies madhu je hit zali ahe "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like you're asking for some of the best movies of Salman Khan. You mentioned that \"madhu je hit zali ahe,\" which I think means \"madhu's hits are famous\" or something similar. \n\nWell, if you're interested in watching some of Salman Khan's most popular films, I'd be happy to recommend a few. Here are some of his most successful movies:\n\n1. **Bajrangi Bhaijaan** (2015) - a heartwarming drama that features Salman Khan in a lead role alongside Kareena Kapoor Khan.\n2. **Sultan** (2016) - an action-drama that showcases Salman Khan's wrestling skills and features Anushka Sharma in a lead role.\n3. **Dabangg** (2010) - an action-comedy that features Salman Khan as the titular character, a tough police officer.\n4. **Tere Naam** (2003) - a romantic drama that features Salman Khan in a lead role alongside Sonali Bendre.\n5. **Hum Dil De Chuke Sanam** (1999) - a romantic drama that explores the complexities of love and relationships.\n\nThese movies have been well-received by audiences and critics alike, and are definitely worth watching if you're a fan of Salman Khan."
+                },
+                {
+                    "role": "user",
+                    "content": "mala tu he snag aat arthi madhe ki mala gym workout sthi kont best you tue chnal lagnar te sng mal tu "
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like you're asking for some of the best gym workouts or fitness routines that I can recommend. I'm glad you're interested in staying fit and healthy.\n\nWell, as we were discussing earlier, Salman Khan is known for his fitness and has been a part of many action-packed films. If you're looking for some inspiration for your gym workouts, I'd be happy to suggest a few.\n\nOne of the most popular gym routines is a full-body workout that targets all major muscle groups. Here's an example:\n\n1. Warm-up: 5-10 minutes of cardio (jogging, cycling, or rowing)\n2. Squats: 3 sets of 10 reps\n3. Deadlifts: 3 sets of 10 reps\n4. Bench press: 3 sets of 10 reps\n5. Rows: 3 sets of 10 reps\n6. Shoulder press: 3 sets of 10 reps\n7. Bicep curls: 3 sets of 10 reps\n8. Tricep dips: 3 sets of 10 reps\n9. Cool-down: 5-10 minutes of stretching\n\nAnother popular routine is a HIIT (High-Intensity Interval Training) workout, which involves short bursts of intense exercise followed by brief periods of rest. Here's an example:\n\n1. Sprints: 30 seconds of all-out effort followed by 30 seconds of rest\n2. Burpees: 30 seconds of all"
+                },
+                {
+                    "role": "user",
+                    "content": "virat kholi win mach yerar"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Invalid Calculation"
+                },
+                {
+                    "role": "user",
+                    "content": "mala tu virat kohli ch phto de"
+                },
+                {
+                    "role": "assistant",
+                    "content": "Invalid Calculation"
+                },
+                {
+                    "role": "user",
+                    "content": "virat kholi wife name de"
+                },
+                {
+                    "role": "assistant",
+                    "content": "1. Anushka Sharma - Wikipedia\nhttps://en.wikipedia.org/wiki/Anushka_Sharma\n\n2. Virat Kohli - Wikipedia\nhttps://en.wikipedia.org/wiki/Virat_Kohli\n\n3. Anushka Sharma - Simple English Wikipedia, the free encyclopedia\nhttps://simple.wikipedia.org/wiki/Anushka_Sharma\n\n4. 257 Virat Kohli Anushka Sharma Photos & High Res Pictures - Getty Images\nhttps://www.gettyimages.in/photos/virat-kohli-anushka-sharma\n\n5. Virat Kohli Wife Name: Biography, Height, Age, Family, Lifestyle\nhttps://wifenamebio.com/virat-kohli-wife-name-bio/\n\n"
+                },
+                {
+                    "role": "user",
+                    "content": "ala tu snag ki kay aky srearch kau shkt te snag mala detil amdhe "
+                },
+                {
+                    "role": "assistant",
+                    "content": "1. Açmadığım İyzico Hesabına Gelen Şüpheli SMS Ve Kişisel... - Şikayetvar\nhttps://www.sikayetvar.com/iyzico/acmadigim-iyzico-hesabina-gelen-supheli-sms-ve-kisisel-verilerin-kullanimi\n\n2. A h m e d i - Dâstân-ı Tevârîh-i Mülûk-i Âl-i Osmân - Nihat Sami Banarlı\nhttps://www.academia.edu/38935228/A_h_m_e_d_i_Dâstân_ı_Tevârîh_i_Mülûk_i_Âl_i_Osmân_Nihat_Sami_Banarlı\n\n3. Как Вернуть Старый Интерфейс В Танкс Блиц На Лесте... | TikTok\nhttps://www.tiktok.com/discover/как-вернуть-старый-интерфейс-в-танкс-блиц-на-лесте-2025-года\n\n4. İlk 20 Saat - DOKUMEN.PUB\nhttps://dokumen.pub/lk-20-saat.html\n\n5. Kitab Sirr al-Khaliqa wa San at al-tabu a | Samizdat\nhttps://therealsamizdat.com/tag/kitab-sirr-al-khaliqa-wa-san-at-al-tabu-a/\n\n"
+                },
+                {
+                    "role": "user",
+                    "content": "best song for 2025 love snag top 10nsng and its link you tube"
+                },
+                {
+                    "role": "assistant",
+                    "content": "1. The 100 Best Songs of 2025: Staff Picks\nhttps://www.billboard.com/lists/best-songs-2025/\n\n2. The 100 Best Songs of 2025\nhttps://www.rollingstone.com/music/music-lists/best-songs-of-2025-1235468614/\n\n3. The 100 Best Songs of 2025 | Pitchfork\nhttps://pitchfork.com/features/lists-and-guides/best-songs-2025/\n\n4. NPR's Best Songs of 2025 : NPR\nhttps://www.npr.org/2025/12/09/nx-s1-5619849/best-songs-of-2025\n\n5. 10 best songs of 2025, ranked\nhttps://www.usatoday.com/story/entertainment/music/2025/12/17/best-songs-2025-ranking/87703729007/\n\n"
+                },
+                {
+                    "role": "user",
+                    "content": "love song name sng 5 "
+                },
+                {
+                    "role": "assistant",
+                    "content": "1. Top 50 Love Songs of All Time (Updated)\nhttps://www.billboard.com/lists/top-love-songs-all-time/\n\n2. 5 Love Songs You Need to Know - 333Sound\nhttps://333sound.com/5-love-songs-you-need-to-know/\n\n3. Love Songs Vol.5 - Compilation by Various Artists | Spotify\nhttps://open.spotify.com/album/5wFrWlsxZtspjItTz4P9wP\n\n4. r/rnb on Reddit: Top 5 R&B songs with LOVE in the title, GO!!! (Don't cheat!🤨)\nhttps://www.reddit.com/r/rnb/comments/1ar06q2/top_5_rb_songs_with_love_in_the_title_go_dont/\n\n5. Top 10 love songs of all time – The Vanderbilt Hustler\nhttps://vanderbilthustler.com/2026/02/13/top-10-love-songs-of-all-time/\n\n"
+                },
+                {
+                    "role": "user",
+                    "content": "hindi love sna name de mala ani you tube link de mala "
+                },
+                {
+                    "role": "assistant",
+                    "content": "1. Mala Sinha - Wikipedia\nhttps://en.wikipedia.org/wiki/Mala_Sinha\n\n2. HindiGeetMala.net : Lyrics of Hindi Film Songs\nhttps://www.hindigeetmala.net/\n\n3. Ishq Wala Love - इश्क वाला लव\nhttps://www.hindigeetmala.net/song/ishq_wala_love.htm\n\n4. Songs of Mala Sinha as a actor\nhttps://smriti.com/hindi-songs/name-mala-sinha\n\n5. Mala Name Meaning in Hindi - माला नाम हिन्दी में अर्थ.\nhttps://hamariweb.com/names/hindu/hindi/girl/hindi/mala-meaning_9463/\n\n"
+                },
+                {
+                    "role": "user",
+                    "content": "you tube link de mala "
+                },
+                {
+                    "role": "assistant",
+                    "content": "1. MALA (feat. Anuel Aa) - YouTube\nhttps://www.youtube.com/watch?v=mOvSub-yTRI\n\n2. Mala - \"Trouble\" (Official Audio) - YouTube\nhttps://www.youtube.com/watch?v=jhSK_JOds0Y\n\n3. Mala - \"Come Get It\" (Official Audio) - YouTube\nhttps://www.youtube.com/watch?v=KjVf80353vs\n\n4. Mala - Born to Be Bold - YouTube\nhttps://www.youtube.com/watch?v=G3gwui9iQbQ\n\n5. Mala Fe - YouTube\nhttps://www.youtube.com/channel/UC-yF3ckeEd4LwiRp0nl7BqQ\n\n"
+                }
+            ],
+            "created_at": "2026-06-07T17:34:14",
+            "updated_at": "2026-06-08T15:05:02"
+        },
+        {
+            "id": "14df0a4c-ae5b-4b9e-8431-d20abbe30e38",
+            "title": "python history  m",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "python history"
+                },
+                {
+                    "role": "assistant",
+                    "content": "It seems like we're back to discussing programming and Python.  Python is a high-level, interpreted programming language that was created in the late 1980s by Guido van Rossum. \n\nHere's a brief summary of the history of Python:\n\n- 1989: Guido van Rossum begins working on Python as a successor to the ABC programming language.\n- 1991: The first version of Python (version 0.9.1) is released.\n- 1994: Python 1.2 is released, which includes support for exception handling and other features.\n- 2000: Python 2.0 is released, which includes a number of significant changes, including the introduction of the \"with\" statement.\n- 2008: Python 3.0 is released, which is a major revision of the language that includes many changes and improvements.\n- 2010s: Python continues to evolve, with new features and improvements being added in each major release.\n\nToday, Python is one of the most popular programming languages in the world, known for its simplicity, flexibility, and extensive libraries and frameworks.\n\nIf you're interested in learning more about Python or its history, I'd be happy to provide more information or point you in the direction of some resources."
+                },
+                {
+                    "role": "user",
+                    "content": "use for python "
+                },
+                {
+                    "role": "assistant",
+                    "content": "Python is a versatile and widely-used programming language, and as such, it has a multitude of uses across various industries and domains. Given our previous conversation about fitness and YouTube, I'd like to highlight some interesting uses of Python in the field of fitness and beyond.\n\nSome of the many uses of Python include:\n\n1. **Data Analysis and Visualization**: Python is widely used in data analysis and visualization, which is particularly useful in fitness and sports analytics. For example, you could use Python libraries like Pandas and Matplotlib to analyze workout data and visualize progress.\n2. **Machine Learning and AI**: Python is a popular choice for machine learning and artificial intelligence applications. In fitness, this could involve using Python to analyze workout data and provide personalized recommendations for improvement.\n3. **Web Development**: Python can be used to build web applications, including fitness tracking platforms, workout apps, and websites for fitness professionals.\n4. **Scientific Computing**: Python is widely used in scientific computing, which includes tasks like data analysis, simulation, and modeling. In fitness, this could involve using Python to simulate workouts, predict performance, or analyze biomechanics.\n5. **Automation**: Python can be used to automate tasks, such as data entry, report generation, and more. In fitness, this could involve automating tasks like tracking workout routines, generating reports, or sending notifications.\n\nIn the context of our previous conversation about YouTube and fitness, Python could be used to:\n\n* Analyze YouTube video metadata to recommend"
+                }
+            ],
+            "created_at": "2026-06-07T17:22:30",
+            "updated_at": "2026-06-07T17:25:19"
+        }
+    ]
+}
