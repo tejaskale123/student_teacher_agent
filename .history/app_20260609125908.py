@@ -111,12 +111,6 @@ def initialize_session_state():
     if "uploaded_file_signature" not in st.session_state:
         st.session_state.uploaded_file_signature = None
 
-    if "uploaded_preview" not in st.session_state:
-        st.session_state.uploaded_preview = None
-
-    if "upload_status" not in st.session_state:
-        st.session_state.upload_status = None
-
     if "active_uploaded_pdf" not in st.session_state:
         st.session_state.active_uploaded_pdf = None
 
@@ -333,6 +327,14 @@ st.markdown(
             text-align: center;
         }
 
+        /* Chat message container: make messages compact and scrollable */
+        [data-testid="stVerticalBlock"]:has([data-testid="stChatMessage"]) {
+            gap: 0.25rem;
+            max-height: calc(100vh - 170px);
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
         [data-testid="stChatMessage"] {
             background: transparent;
             border: 0;
@@ -355,7 +357,8 @@ st.markdown(
 
         [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] {
             border-radius: 20px;
-            max-width: 780px;
+            max-width: min(85%, 900px);
+            width: fit-content;
             padding: 0.95rem 1rem;
             font-size: 0.96rem;
             box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
@@ -385,6 +388,17 @@ st.markdown(
         }
 
         /* Fix chat input to bottom, centered within main content */
+        .chatbar-wrapper {
+            position: fixed;
+            left: calc(50% + 80px);
+            transform: translateX(-50%);
+            bottom: 20px;
+            width: min(900px, calc(100vw - 420px));
+            z-index: 9999;
+            padding: 0 0.5rem;
+            pointer-events: auto;
+        }
+
         .chatbar-row {
             position: relative;
             display: flex;
@@ -594,7 +608,7 @@ st.markdown(
     """
     <div class='app-header'>
         <h1>🎓 Student Teacher Agent</h1>
-        <p style='color: var(--muted); margin: 0.3rem 0 0 0;'>Multi-Agent AI Assistant</p>
+        <p style='color: var(--muted); margin: 0.3rem 0 0 0;'>Search • RAG • Memory • Multi-Agent AI</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -638,7 +652,7 @@ with st.sidebar:
             st.rerun()
 
     if st.session_state.uploaded_preview:
-        st.success(f"📄 {st.session_state.uploaded_preview}")
+        st.markdown(f"<div style='margin-top:12px;'>PDF Loaded: <strong>{st.session_state.uploaded_preview}</strong></div>", unsafe_allow_html=True)
         st.markdown(f"<div>Status: <span style='color:#10A37F;'>🟢 {st.session_state.upload_status or 'Ready'}</span></div>", unsafe_allow_html=True)
     else:
         st.markdown("<div style='margin-top:12px; color: var(--muted);'>Upload a PDF to build the knowledge base.</div>", unsafe_allow_html=True)
@@ -661,7 +675,7 @@ with st.sidebar:
         title = chat.get("title", "New Chat")
         is_active = chat_id == st.session_state.active_chat_id
 
-        cols = st.columns([0.12, 0.68, 0.2])
+        cols = st.columns([0.08, 0.72, 0.2])
 
         with cols[0]:
             st.markdown("🧠")
@@ -732,7 +746,7 @@ with st.sidebar:
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-chat_history = st.container()
+chat_history = st.container(height=620, border=False)
 
 with chat_history:
     if not st.session_state.messages:
@@ -773,7 +787,12 @@ if st.session_state.uploaded_preview:
         unsafe_allow_html=True,
     )
 
-prompt = st.chat_input("Ask anything about AI, Programming, PDFs...")
+with st.container():
+    st.markdown("<div class='chatbar-wrapper'>", unsafe_allow_html=True)
+    st.markdown("<div class='chatbar-row'>", unsafe_allow_html=True)
+    prompt = st.chat_input("Message Student Teacher Agent")
+    st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
     run_teacher(prompt)

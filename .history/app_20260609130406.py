@@ -111,12 +111,6 @@ def initialize_session_state():
     if "uploaded_file_signature" not in st.session_state:
         st.session_state.uploaded_file_signature = None
 
-    if "uploaded_preview" not in st.session_state:
-        st.session_state.uploaded_preview = None
-
-    if "upload_status" not in st.session_state:
-        st.session_state.upload_status = None
-
     if "active_uploaded_pdf" not in st.session_state:
         st.session_state.active_uploaded_pdf = None
 

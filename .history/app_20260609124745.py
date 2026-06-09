@@ -111,12 +111,6 @@ def initialize_session_state():
     if "uploaded_file_signature" not in st.session_state:
         st.session_state.uploaded_file_signature = None
 
-    if "uploaded_preview" not in st.session_state:
-        st.session_state.uploaded_preview = None
-
-    if "upload_status" not in st.session_state:
-        st.session_state.upload_status = None
-
     if "active_uploaded_pdf" not in st.session_state:
         st.session_state.active_uploaded_pdf = None
 
@@ -270,9 +264,9 @@ st.markdown(
         }
 
         .main .block-container {
-            max-width: 1100px;
-            padding-top: 1rem;
-            padding-bottom: 8rem;
+            max-width: 820px;
+            padding-top: 1.5rem;
+            padding-bottom: 8.5rem;
         }
 
         [data-testid="stSidebar"] {
@@ -333,6 +327,14 @@ st.markdown(
             text-align: center;
         }
 
+        /* Chat message container: make messages compact and scrollable */
+        [data-testid="stVerticalBlock"]:has([data-testid="stChatMessage"]) {
+            gap: 0.25rem;
+            max-height: calc(100vh - 170px);
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
         [data-testid="stChatMessage"] {
             background: transparent;
             border: 0;
@@ -354,8 +356,8 @@ st.markdown(
         }
 
         [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] {
-            border-radius: 20px;
-            max-width: 780px;
+            border-radius: 18px;
+            max-width: min(76%, 660px);
             padding: 0.95rem 1rem;
             font-size: 0.96rem;
             box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
@@ -385,6 +387,17 @@ st.markdown(
         }
 
         /* Fix chat input to bottom, centered within main content */
+        .chatbar-wrapper {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 16px;
+            width: min(820px, calc(100% - 48px));
+            z-index: 9999;
+            padding: 0 0.5rem;
+            pointer-events: auto;
+        }
+
         .chatbar-row {
             position: relative;
             display: flex;
@@ -504,11 +517,6 @@ st.markdown(
             background: #2d2d2d;
         }
 
-        .chat-item:hover {
-            background: #1F2937;
-            transform: translateY(-1px);
-        }
-
         [data-testid="stFileUploader"] {
             background: transparent;
             border: 0;
@@ -564,12 +572,8 @@ st.markdown(
             text-overflow: ellipsis;
         }
 
-        [data-testid="stSidebar"] .chat-list .stButton > button {
-            transition: transform 0.15s ease, background 0.15s ease;
-        }
-
         [data-testid="stSidebar"] .chat-list .stButton > button:hover {
-            background: #1F2937;
+            background: #272727;
             transform: translateY(-1px);
             cursor: pointer;
         }
@@ -594,11 +598,11 @@ st.markdown(
     """
     <div class='app-header'>
         <h1>🎓 Student Teacher Agent</h1>
-        <p style='color: var(--muted); margin: 0.3rem 0 0 0;'>Multi-Agent AI Assistant</p>
     </div>
     """,
     unsafe_allow_html=True,
 )
+st.caption("Search • RAG • Memory • Multi-Agent AI")
 
 with st.sidebar:
     # Top title
@@ -606,10 +610,10 @@ with st.sidebar:
         f"<div class='sidebar-title'>{APP_ICON} Student Teacher Agent</div>",
         unsafe_allow_html=True,
     )
-    st.markdown(
-        "<div class='sidebar-caption'>Search • RAG • Memory • Multi-Agent AI</div>",
-        unsafe_allow_html=True,
-    )
+        st.markdown(
+            "<div class='sidebar-caption'>Search • RAG • Memory • Multi-Agent AI</div>",
+            unsafe_allow_html=True,
+        )
 
     # Single New Chat button
     if st.button("+  New chat", key="new_chat_sidebar", use_container_width=True):
@@ -617,14 +621,12 @@ with st.sidebar:
         st.rerun()
 
     st.markdown("<div class='sidebar-card'>", unsafe_allow_html=True)
-    st.markdown("<strong>📄 Knowledge Base</strong>", unsafe_allow_html=True)
     sidebar_pdf = st.file_uploader(
-        "Upload PDF",
+        "📄 Upload PDF",
         type=["pdf"],
         key="sidebar_pdf_uploader",
         label_visibility="collapsed",
     )
-
     if sidebar_pdf is not None:
         file_signature = f"{sidebar_pdf.name}:{sidebar_pdf.size}"
         if file_signature != st.session_state.uploaded_file_signature:
@@ -636,16 +638,10 @@ with st.sidebar:
             except Exception as error:
                 st.session_state.upload_status = f"Upload failed: {error}"
             st.rerun()
-
-    if st.session_state.uploaded_preview:
-        st.success(f"📄 {st.session_state.uploaded_preview}")
-        st.markdown(f"<div>Status: <span style='color:#10A37F;'>🟢 {st.session_state.upload_status or 'Ready'}</span></div>", unsafe_allow_html=True)
-    else:
-        st.markdown("<div style='margin-top:12px; color: var(--muted);'>Upload a PDF to build the knowledge base.</div>", unsafe_allow_html=True)
-
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("<div class='chat-list-label'>Recent Chats</div>", unsafe_allow_html=True)
+    )
 
     sorted_chats = sorted(
         st.session_state.chats,
@@ -661,7 +657,7 @@ with st.sidebar:
         title = chat.get("title", "New Chat")
         is_active = chat_id == st.session_state.active_chat_id
 
-        cols = st.columns([0.12, 0.68, 0.2])
+        cols = st.columns([0.08, 0.72, 0.2])
 
         with cols[0]:
             st.markdown("🧠")
@@ -732,7 +728,7 @@ with st.sidebar:
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-chat_history = st.container()
+chat_history = st.container(height=620, border=False)
 
 with chat_history:
     if not st.session_state.messages:
@@ -752,14 +748,12 @@ with chat_history:
         col2.metric("Time", f"{last_run.get('execution_time', 0)}s")
         col3.metric("Confidence", last_run.get("confidence", "N/A"))
 
-    sources = last_run.get("sources", [])
-    with st.expander("📚 Sources", expanded=False):
-        if sources:
-            for item in sources:
-                st.markdown(f"▶ {item}")
-        else:
-            st.write("No sources available yet.")
 
+if "attachment_menu_open" not in st.session_state:
+    st.session_state.attachment_menu_open = False
+
+if "attachment_type" not in st.session_state:
+    st.session_state.attachment_type = None
 
 if "uploaded_preview" not in st.session_state:
     st.session_state.uploaded_preview = None
@@ -773,7 +767,72 @@ if st.session_state.uploaded_preview:
         unsafe_allow_html=True,
     )
 
-prompt = st.chat_input("Ask anything about AI, Programming, PDFs...")
+with st.container():
+    st.markdown("<div class='chatbar-wrapper'>", unsafe_allow_html=True)
+
+    if st.session_state.attachment_menu_open:
+        st.markdown("<div class='attachment-popup'>", unsafe_allow_html=True)
+        st.write("**Attach a file**")
+        option_cols = st.columns([1, 1, 1, 1])
+
+        with option_cols[0]:
+            if st.button("PDF", key="upload_pdf"):
+                st.session_state.attachment_type = "pdf"
+        with option_cols[1]:
+            if st.button("Image", key="upload_image"):
+                st.session_state.attachment_type = "image"
+        with option_cols[2]:
+            if st.button("DOCX", key="upload_docx"):
+                st.session_state.attachment_type = "docx"
+        with option_cols[3]:
+            if st.button("TXT", key="upload_txt"):
+                st.session_state.attachment_type = "txt"
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    if st.session_state.attachment_type:
+        if st.session_state.attachment_type == "pdf":
+            allowed_types = ["pdf"]
+            label = "Choose a PDF file"
+        elif st.session_state.attachment_type == "image":
+            allowed_types = ["png", "jpg", "jpeg"]
+            label = "Choose an image file"
+        elif st.session_state.attachment_type == "docx":
+            allowed_types = ["docx"]
+            label = "Choose a DOCX file"
+        else:
+            allowed_types = ["txt"]
+            label = "Choose a TXT file"
+
+        attachment = st.file_uploader(
+            label,
+            type=allowed_types,
+            key="attachment_uploader",
+            label_visibility="visible",
+        )
+
+        if attachment is not None:
+            file_signature = f"{attachment.name}:{attachment.size}"
+            if file_signature != st.session_state.uploaded_file_signature:
+                st.session_state.uploaded_file_signature = file_signature
+                handle_uploaded_file(attachment)
+                st.session_state.uploaded_preview = attachment.name
+                st.session_state.upload_status = "Ready"
+                st.session_state.attachment_menu_open = False
+                st.session_state.attachment_type = None
+                st.rerun()
+
+    st.markdown("<div class='chatbar-row'>", unsafe_allow_html=True)
+    cols = st.columns([0.08, 0.92], gap="small")
+    with cols[0]:
+        if st.button("📎", key="attach_btn", help="Attach a file"):
+            st.session_state.attachment_menu_open = not st.session_state.attachment_menu_open
+            st.session_state.attachment_type = None
+    with cols[1]:
+        prompt = st.chat_input("Message Student Teacher Agent")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
 if prompt:
     run_teacher(prompt)
